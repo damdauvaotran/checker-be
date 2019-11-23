@@ -1,13 +1,17 @@
+CREATE DATABASE exam_scores;
+ 
+USE exam_scores;
+
 CREATE TABLE students (
     studentId INT NOT NULL AUTO_INCREMENT,
-    fullname VARCHAR(255,
+    fullname VARCHAR(255),
     MSSV INT,
     PRIMARY KEY (studentId)
 );
 
 CREATE TABLE subjects (
     subjectId INT NOT NULL AUTO_INCREMENT,
-    subjectName VARCHAR(255,
+    subjectName VARCHAR(255),
     credit INT,
     PRIMARY KEY (subjectId)
 );
@@ -21,9 +25,10 @@ CREATE TABLE scores (
     PRIMARY KEY (scoresId)
 );
 
-
+ALTER TABLE scores 
+ADD 
+	CONSTRAINT fk_student_id FOREIGN KEY(studentId) REFERENCES students(studentId)
 
 ALTER TABLE scores 
 ADD 
-	CONSTRAINT fk_student_id FOREIGN KEY(studentId) REFERENCES students(studentId),
-    CONSTRAINT fk_subject_id FOREIGN KEY(subjectId) REFERENCES subjects(subjectId);
+	CONSTRAINT fk_subject_id FOREIGN KEY(subjectId) REFERENCES subjects(subjectId);
