@@ -4,6 +4,7 @@ module.exports = (sequelize, type) => sequelize.define('users',
       type: type.BIGINT,
       primaryKey: true,
       allowNull: false,
+      autoIncrement: true
     },
     username: {
       type: type.STRING,
@@ -18,6 +19,10 @@ module.exports = (sequelize, type) => sequelize.define('users',
       allowNull: false,
     },
     name: {
+      type: type.STRING,
+      allowNull: false,
+    },
+    mssv: {
       type: type.STRING,
       allowNull: false,
     },

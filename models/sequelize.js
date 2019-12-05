@@ -37,7 +37,7 @@ ExamShifts.hasMany(ExamRegistrations, { foreignKey: 'exam_shift_id' });
 Users.hasMany(ExamRegistrations, { foreignKey: 'user_id' });
 
 
-db.sync({force: true}).then(() => {
+db.sync({ force: false }).then(() => {
   console.log('Database & tables created!');
 });
 
